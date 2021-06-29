@@ -1,0 +1,14 @@
+main .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main .cards > div {
+    width: 250px;
+    margin: 10px;
+}
+
+main .cards img {
+    max-width: 100%;
+}

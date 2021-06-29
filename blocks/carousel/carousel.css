@@ -1,0 +1,32 @@
+main .carousel .carousel-nav {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+main .carousel .carousel-nav .carousel-nav-item {
+    height: 6px;
+    width: 38px;
+    background-color: lightgrey;
+    margin: 6px;
+}
+
+main .carousel .carousel-nav .carousel-nav-item.selected {
+    background: #071d49;
+}
+
+main .carousel {
+    text-align: center;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: grey;
+    padding: 50px 30px;
+}
+
+main .carousel a:any-link {
+    font-size: 30px;
+    color: #071d49;
+}
+

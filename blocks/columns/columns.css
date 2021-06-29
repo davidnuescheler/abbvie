@@ -1,0 +1,15 @@
+main .columns > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main .columns > div > div {
+    width: 250px;
+    margin: 10px;
+    text-align: center;
+}
+
+main .columns img {
+    max-width: 50px;
+}

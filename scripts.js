@@ -46,6 +46,25 @@ export function toClassName(name) {
     }
     return el;
   }
+
+  function addClasses($elems, classes) {
+    $elems.forEach(($elem, i) => {
+      $elem.classList.add(classes[i]);
+    });
+  }
+
+  async function decorateHeader() {
+    const $header = document.querySelector('header');
+    const resp = await fetch('/nav.plain.html');
+    const text = await resp.text();
+    const $div = createTag('div', {class: 'nav'});
+    $div.innerHTML = text;
+    const navs = [...$div.children];
+    addClasses(navs, ['nav-top', 'nav-bottom']);
+    addClasses([...navs[0].children], ['nav-global', 'nav-items']);
+    addClasses([...navs[1].children], ['nav-left', 'nav-center', 'nav-right']);
+    $header.appendChild($div); 
+  }
   
   function decorateBlocks() {
     document.querySelectorAll('main div.section-wrapper > div > div').forEach(($block) => {
@@ -96,6 +115,7 @@ export function toClassName(name) {
   }
   
   function postLCP() {
+    decorateHeader();
     loadBlocks();
     loadCSS('/lazy-styles.css');
   }
@@ -196,7 +216,7 @@ export function toClassName(name) {
  */
 
 function createHeroSection() {
-    const $headerImg = document.querySelector('main>div:first-of-type>div>:first-child>img');
+    const $headerImg = document.querySelector('main>div:first-of-type>div>:first-child>picture>img');
     if ($headerImg) {
       const src = $headerImg.getAttribute('src');
       const $wrapper = $headerImg.closest('.section-wrapper');
